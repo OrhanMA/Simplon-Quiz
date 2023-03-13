@@ -95,8 +95,11 @@ button:hover {
 }
 
 .question-answer > div {
-  width: 90%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
+
 .question-answer {
   display: flex;
   justify-content: center;
@@ -109,6 +112,10 @@ button:hover {
 .question-answer > h2 {
   display: flex;
   justify-content: center;
+}
+
+.question-answer > div > img {
+  width: 40%;
 }
 
 .right-answer {
@@ -132,7 +139,7 @@ button:hover {
   background-color: white;
   padding: 5rem;
   height: 80%;
-  max-width: 30%;
+  max-width: 60%;
 }
 
 .green-points {
@@ -141,4 +148,37 @@ button:hover {
 
 .red-points {
   color: #dd3c3c;
+}
+
+.results {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.results > h2 {
+  font-size: 3rem;
+}
+.results > div > h3 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+.results > div > h4 {
+  font-size: 2rem;
+}
+.results > button {
+  font-size: 1.5rem;
+}
+
+.results > div {
+  background-color: white;
+  padding: 5rem;
+  border-radius: 25px;
+  margin: 2rem;
+  width: 80%;
+}
+
+.results > * {
+  width: 50%;
+  text-align: center;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="./script.ts"></script>
+    <script src="./script.ts" defer></script>
     <title>Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,10 +29,16 @@
     <div class="question question-1">
       <h2>Q.1 Which continent is China in?</h2>
       <div class="answers">
-        <button>Africa</button>
-        <button>Americas</button>
-        <button>Europe</button>
-        <button>Asia</button>
+        <button class="question-1-choices" id="africa" value="africa">
+          Africa
+        </button>
+        <button class="question-1-choices" id="americas" value="americas">
+          Americas
+        </button>
+        <button class="question-1-choices" id="europe" value="europe">
+          Europe
+        </button>
+        <button class="question-1-choices" id="asia" value="asia">Asia</button>
       </div>
       <button class="confirm-button">Confirm</button>
     </div>
@@ -50,10 +56,18 @@
     <div class="question question-2">
       <h2>Q.2 What is the capital of China?</h2>
       <div class="answers">
-        <button>Beijing</button>
-        <button>Pyongyang</button>
-        <button>Shanghai</button>
-        <button>Hongkong</button>
+        <button class=".question-2-choices" id="beijing" value="beijing">
+          Beijing
+        </button>
+        <button class=".question-2-choices" id="pyongyang" value="pyongyang">
+          Pyongyang
+        </button>
+        <button class=".question-2-choices" id="shanghai" value="shanghai">
+          Shanghai
+        </button>
+        <button class=".question-2-choices" id="hongkong" value="hongkong">
+          Hongkong
+        </button>
       </div>
       <button class="confirm-button">Confirm</button>
     </div>
@@ -71,10 +85,20 @@
     <div class="question question-3">
       <h2>Q.3 What is China's major export?</h2>
       <div class="answers">
-        <button>Machinery</button>
-        <button>Electronics</button>
-        <button>Rice</button>
-        <button>Hard materials</button>
+        <button class=".question-3-choices" id="machinery" value="machinery">
+          Machinery
+        </button>
+        <button
+          class=".question-3-choices"
+          id="electronics"
+          value="electronics"
+        >
+          Electronics
+        </button>
+        <button class=".question-3-choices" id="rice" value="rice">Rice</button>
+        <button class=".question-3-choices" id="materials" value="materials">
+          Hard materials
+        </button>
       </div>
       <button class="confirm-button">Confirm</button>
     </div>
@@ -92,10 +116,18 @@
     <div class="question question-4">
       <h2>Q.4 What is the population of China?</h2>
       <div class="answers">
-        <button>1.4 Billion</button>
-        <button>24 Billion</button>
-        <button>2.8 Billion</button>
-        <button>1.4 Million</button>
+        <button class=".question-4-choices" id="1.4billion" value="1.4billion">
+          1.4 Billion
+        </button>
+        <button class=".question-4-choices" id="24billion" value="24billion">
+          24 Billion
+        </button>
+        <button class=".question-4-choices" id="2.8billion" value="2.8billion">
+          2.8 Billion
+        </button>
+        <button class=".question-4-choices" id="1.4million" value="1.4million">
+          1.4 Million
+        </button>
       </div>
       <button class="confirm-button">Confirm</button>
     </div>
@@ -113,23 +145,47 @@
     <div class="question question-5">
       <h2>Q.5 What is one of the main religions in China?</h2>
       <div class="answers">
-        <button>Catholicism</button>
-        <button>Buddhism</button>
-        <button>Christianity</button>
-        <button>Islam</button>
+        <button
+          class=".question-5-choices"
+          id="catholicism"
+          value="catholicism"
+        >
+          Catholicism
+        </button>
+        <button class=".question-5-choices" id="buddhism" value="buddhism">
+          Buddhism
+        </button>
+        <button
+          class=".question-5-choices"
+          id="christianity"
+          value="christianity"
+        >
+          Christianity
+        </button>
+        <button class=".question-5-choices" id="islam" value="islam">
+          Islam
+        </button>
       </div>
       <button class="confirm-button">Confirm</button>
     </div>
     <div class="question-answer answer-3">
       <h2>Answer:</h2>
       <div class="right-answer">
-        <img src="../assets/monument.jpg" alt="Image of a monument in China" />
+        <img src="../assets/buddhism.jpg" alt="Image of a monument in China" />
         <div>
           <p>2: Buddhism</p>
           <p class="red-points">-5 points</p>
         </div>
       </div>
       <button class="next-button">Next question</button>
+    </div>
+    <div class="results">
+      <h2>It's over</h2>
+      <div>
+        <h3>Results:</h3>
+        <h4>You won 40 points! Well done!</h4>
+      </div>
+      <button>Play again</button>
     </div>
   </body>
 </html>
