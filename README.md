@@ -9,6 +9,14 @@ Pour mettre en place le projet sur votre ordinateur vous devez:
 - Run le projet avec parcel (yarn parcel src/index.html)
 - Lien vers la documentation officielle: https://parceljs.org/getting-started/webapp/
 
+Sources:
+
+images: Ling Tang: https://unsplash.com/fr/photos/yBroAF1cN3I
+https://img1.yna.co.kr/etc/inner/FR/2020/03/27/AFR20200327002100884_01_i_P4.jpg
+https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/640px-Asia_%28orthographic_projection%29.svg.png
+https://www.nationalreview.com/wp-content/uploads/2022/02/beijing.jpg?fit=2057%2C1200
+Nick Fewings: https://unsplash.com/fr/photos/efD1FBZqYuQ
+
 Concernant le projet:
 
 Le but de ce brief Simplon est de faire un quiz. Le choix du theme est libre mais le format du quiz doit etre le suivant:
