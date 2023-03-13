@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <script src="./script.ts"></script>
+    <script src="./script.ts" defer></script>
     <title>Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,110 +26,6 @@
       </h2>
       <button id="start">Click to start playing</button>
     </div>
-    <div class="question question-1">
-      <h2>Q.1 Which continent is China in?</h2>
-      <div class="answers">
-        <button>Africa</button>
-        <button>Americas</button>
-        <button>Europe</button>
-        <button>Asia</button>
-      </div>
-      <button class="confirm-button">Confirm</button>
-    </div>
-    <div class="question-answer answer-1">
-      <h2>Answer:</h2>
-      <div class="right-answer">
-        <img src="../assets/asia.png" alt="China on a map" />
-        <div>
-          <p>4: Asia</p>
-          <p class="green-points">+10 points</p>
-        </div>
-      </div>
-      <button class="next-button">Next question</button>
-    </div>
-    <div class="question question-2">
-      <h2>Q.2 What is the capital of China?</h2>
-      <div class="answers">
-        <button>Beijing</button>
-        <button>Pyongyang</button>
-        <button>Shanghai</button>
-        <button>Hongkong</button>
-      </div>
-      <button class="confirm-button">Confirm</button>
-    </div>
-    <div class="question-answer answer-2">
-      <h2>Answer:</h2>
-      <div class="right-answer">
-        <img src="../assets/beijing.jpeg" alt="City of Beijing" />
-        <div>
-          <p>1:Beijing</p>
-          <p class="red-points">-5 points</p>
-        </div>
-      </div>
-      <button class="next-button">Next question</button>
-    </div>
-    <div class="question question-3">
-      <h2>Q.3 What is China's major export?</h2>
-      <div class="answers">
-        <button>Machinery</button>
-        <button>Electronics</button>
-        <button>Rice</button>
-        <button>Hard materials</button>
-      </div>
-      <button class="confirm-button">Confirm</button>
-    </div>
-    <div class="question-answer answer-3">
-      <h2>Answer:</h2>
-      <div class="right-answer">
-        <img src="../assets/usine.jpeg" alt="Image of a factory" />
-        <div>
-          <p>1:Electronics</p>
-          <p class="green-points">+10 points</p>
-        </div>
-      </div>
-      <button class="next-button">Next question</button>
-    </div>
-    <div class="question question-4">
-      <h2>Q.4 What is the population of China?</h2>
-      <div class="answers">
-        <button>1.4 Billion</button>
-        <button>24 Billion</button>
-        <button>2.8 Billion</button>
-        <button>1.4 Million</button>
-      </div>
-      <button class="confirm-button">Confirm</button>
-    </div>
-    <div class="question-answer answer-3">
-      <h2>Answer:</h2>
-      <div class="right-answer">
-        <img src="../assets/monument.jpg" alt="Image of a monument in China" />
-        <div>
-          <p>1: 1.4 Billion</p>
-          <p class="green-points">+10 points</p>
-        </div>
-      </div>
-      <button class="next-button">Next question</button>
-    </div>
-    <div class="question question-5">
-      <h2>Q.5 What is one of the main religions in China?</h2>
-      <div class="answers">
-        <button>Catholicism</button>
-        <button>Buddhism</button>
-        <button>Christianity</button>
-        <button>Islam</button>
-      </div>
-      <button class="confirm-button">Confirm</button>
-    </div>
-    <div class="question-answer answer-3">
-      <h2>Answer:</h2>
-      <div class="right-answer">
-        <img src="../assets/monument.jpg" alt="Image of a monument in China" />
-        <div>
-          <p>2: Buddhism</p>
-          <p class="red-points">-5 points</p>
-        </div>
-      </div>
-      <button class="next-button">Next question</button>
-    </div>
+    <div class="content"></div>
   </body>
 </html>
