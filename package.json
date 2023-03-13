@@ -1,0 +1,11 @@
+{
+  "name": "Simplon-Quiz",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:OrhanMA/Simplon-Quiz.git",
+  "author": "OrhanMA <orhan.madi.assani@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
