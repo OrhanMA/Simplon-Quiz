@@ -5,96 +5,133 @@ console.log("test");
 interface Question {
   question: string;
   options: string[];
+  correctAnswer: string;
 }
 
-const question1: Question = {
-  question: "Q.1 Which continent is China in?",
-  options: ["Africa", "Americas", "Europe", "Asia"],
-};
-const question2: Question = {
-  question: "Q.2 What is the capital of China?",
-  options: ["Beijing", "Pyongyang", "Shanghai", "Hongkong"],
-};
-const question3: Question = {
-  question: "Q.3 What is China's major export?",
-  options: ["Machinery", "Electronics", "Rice", "Materials"],
-};
-const question4: Question = {
-  question: "Q.4 What is China's total population (in billions)?",
-  options: ["1.4", "24", "2.8", "2"],
-};
-const question5: Question = {
-  question: "Q.5 What is China's most popular religion?",
-  options: ["Catholicism", "Buddhism", "Christianity", "Islam"],
-};
+const questions: Question[] = [
+  {
+    question: "Q.1 Which continent is China in?",
+    options: ["Africa", "Americas", "Europe", "Asia"],
+    correctAnswer: "Asia",
+  },
+  {
+    question: "Q.2 What is the capital of China?",
+    options: ["Beijing", "Pyongyang", "Shanghai", "Hongkong"],
+    correctAnswer: "Beijing",
+  },
+  {
+    question: "Q.3 What is China's major export?",
+    options: ["Machinery", "Electronics", "Rice", "Materials"],
+    correctAnswer: "Electronics",
+  },
+  {
+    question: "Q.4 What is China's total population (in billions)?",
+    options: ["1.4", "24", "2.8", "2"],
+    correctAnswer: "1.4",
+  },
+  {
+    question: "Q.5 What is China's most popular religion?",
+    options: ["Catholicism", "Buddhism", "Christianity", "Islam"],
+    correctAnswer: "Buddhism",
+  },
+];
 
-const main = document.querySelector(".main") as HTMLDivElement;
-// selecting a div to make appear the question in
-const content = document.createElement("div") as HTMLDivElement;
-content.classList.add("content");
-main.appendChild(content);
+let currentQuestion: number = 0;
+let score: number = 0;
+const questionContainer = document.querySelector(
+  ".question-container"
+) as HTMLDivElement;
 
-function displayQuestion(
-  div: HTMLDivquestion,
-  question: interface,
-  options: string[]
-) {
-  // container for the question elements
-  const container = document.createElement("div") as HTMLDivElement;
-  container.classList.add("container");
-  div.appendChild(container);
-  // creating the question's element
-  const currentQuestion = document.createElement("h2") as HTMLHeadingElement;
-  currentQuestion.textContent = question.question;
-  currentQuestion.classList.add("question-heading");
-  container.appendChild(currentQuestion);
-  // div for the answers
-  const choicesContainer = document.createElement("div") as HTMLDivElement;
-  choicesContainer.classList.add("choices-container");
-  container.appendChild(choicesContainer);
-  // creating each answers a function
-  createAnswer(options);
+const questionElement = document.querySelector(".question") as HTMLDivElement;
+const button1 = document.querySelector("#button1") as HTMLButtonElement;
+const button2 = document.querySelector("#button2") as HTMLButtonElement;
+const button3 = document.querySelector("#button3") as HTMLButtonElement;
+const button4 = document.querySelector("#button4") as HTMLButtonElement;
+function displayQuestion(question: Question) {
+  questionElement.textContent = question.question;
+  questionContainer.appendChild(questionElement);
+  button1.textContent = question.options[0];
+  questionContainer.appendChild(button1);
+  button2.textContent = question.options[1];
+  questionContainer.appendChild(button2);
+  button3.textContent = question.options[2];
+  questionContainer.appendChild(button3);
+  button4.textContent = question.options[3];
+  questionContainer.appendChild(button4);
 }
 
-function createAnswer(options: string[]) {
-  const choicesContainer = document.querySelector(
-    ".choices-container"
+const startButton = document.querySelector(".start") as HTMLButtonElement;
+startButton.addEventListener("click", () => {
+  const presentation = document.querySelector(
+    ".presentation"
   ) as HTMLDivElement;
-  for (let i = 0; i < options.length; i++) {
-    const answerBtn = document.createElement("button") as HTMLButtonElement;
-    answerBtn.textContent = `${options[i]}`;
-    answerBtn.classList.add(`${options.indexOf(options[i])}`);
-    choicesContainer.appendChild(answerBtn);
-  }
-}
-
-const presentation = document.querySelector(".presentation") as HTMLDivElement;
-const startBtn = document.getElementById("start") as HTMLButtonElement;
-content.style.display = "none";
-startBtn.addEventListener("click", () => {
   presentation.style.display = "none";
-  content.style.display = "flex";
-  displayQuestion(content, question1, question1.options);
-  const buttons = document.getElementsByTagName("button");
-  console.log(buttons);
-  for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", () => {
-      console.log(buttons[i]);
-      if (buttons[i].classList.contains("3")) {
-        console.log(`${buttons[i].textContent} is the right answer`);
-        userAnswers.push("3");
-      } else if (buttons[i].textContent === "Click to start playing") {
-        console.log("does not apply");
-      } else {
-        console.log(`${buttons[i].textContent} is not the right answer.`);
-        userAnswers.push(`${buttons[i].classList}`);
-      }
-      console.log(userAnswers);
-    });
-  }
+  questionContainer.style.display = "flex";
+  displayQuestion(questions[currentQuestion]);
+  console.log("je marche");
+  checkAnswer(questions[currentQuestion].correctAnswer);
 });
 
-const userAnswers: string[] = [];
-const rightAnswers: string[] = ["4", "1", "2", "1", "2"];
+function checkAnswer(correctAnswer: string) {
+  /*  button1.addEventListener("click", () => {
+    if (button1.textContent === correctAnswer) {
+      console.log(`${button1.textContent} is the right answer`);
+      score += 10;
+      currentQuestion++;
+      button1.textContent = "";
+      console.log(
+        `The current score is ${score} and the next question is number ${
+          currentQuestion + 1
+        }`
+      );
+      displayQuestion(questions[currentQuestion]);
+      checkAnswer(questions[currentQuestion].correctAnswer);
+    } else if (button1.textContent !== correctAnswer) {
+      console.log(`${button1.textContent} is not the right answer`);
+      score -= 5;
+      currentQuestion++;
+      button1.textContent = "";
+      console.log(
+        `The current score is ${score} and the next question is number ${
+          currentQuestion + 1
+        }`
+      );
+      displayQuestion(questions[currentQuestion]);
+      checkAnswer(questions[currentQuestion].correctAnswer);
+    }
+  }); */
+  buttonListener(button1, correctAnswer);
+  buttonListener(button2, correctAnswer);
+  buttonListener(button3, correctAnswer);
+  buttonListener(button4, correctAnswer);
+}
 
-function checkAnswer() {}
+function buttonListener(button: HTMLButtonElement, correctAnswer: string) {
+  button.addEventListener("click", () => {
+    if (button.textContent === correctAnswer) {
+      console.log(`${button.textContent} is the right answer`);
+      score += 10;
+      currentQuestion++;
+      button.textContent = "";
+      console.log(
+        `The current score is ${score} and the next question is number ${
+          currentQuestion + 1
+        }`
+      );
+      displayQuestion(questions[currentQuestion]);
+      checkAnswer(questions[currentQuestion].correctAnswer);
+    } else if (button.textContent !== correctAnswer) {
+      console.log(`${button.textContent} is not the right answer`);
+      score -= 5;
+      currentQuestion++;
+      button.textContent = "";
+      console.log(
+        `The current score is ${score} and the next question is number ${
+          currentQuestion + 1
+        }`
+      );
+      displayQuestion(questions[currentQuestion]);
+      checkAnswer(questions[currentQuestion].correctAnswer);
+    }
+  });
+}
