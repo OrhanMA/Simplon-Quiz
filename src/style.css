@@ -21,7 +21,6 @@ body > div {
   justify-content: center;
   /* Enlever les deux lignes quand t'as fini les parties */
   height: 100vh;
-  border-top: solid 5px black;
 }
 .presentation > * {
   margin-top: 5rem;
@@ -57,30 +56,44 @@ button:hover {
   color: white;
 }
 
-.question > h2,
-.question-answer > h2 {
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-heading {
   font-size: 2rem;
   padding: 1.5rem;
 }
-.answers,
-.right-answer {
+.choices-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   gap: 2rem;
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
 
-.answers > button,
-.right-answer > * {
+.choices-container > button {
+  padding: 2rem;
+  width: 40%;
+}
+
+.confirm-button {
   height: 4rem;
   width: 45%;
   font-size: 1.5rem;
 }
 
-.confirm-button,
-.next-button {
+.confirm-button {
   background-color: white;
   padding: 1rem;
   width: 35%;
@@ -89,6 +102,7 @@ button:hover {
   font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
 .right-answer > img {
   width: 60%;
   height: auto;
@@ -142,6 +156,8 @@ button:hover {
   max-width: 60%;
 }
 
+=======
+>>>>>>> test
 .green-points {
   color: #4cc738;
 }
