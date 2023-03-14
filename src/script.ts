@@ -73,33 +73,6 @@ startButton.addEventListener("click", () => {
 });
 
 function checkAnswer(correctAnswer: string) {
-  /*  button1.addEventListener("click", () => {
-    if (button1.textContent === correctAnswer) {
-      console.log(`${button1.textContent} is the right answer`);
-      score += 10;
-      currentQuestion++;
-      button1.textContent = "";
-      console.log(
-        `The current score is ${score} and the next question is number ${
-          currentQuestion + 1
-        }`
-      );
-      displayQuestion(questions[currentQuestion]);
-      checkAnswer(questions[currentQuestion].correctAnswer);
-    } else if (button1.textContent !== correctAnswer) {
-      console.log(`${button1.textContent} is not the right answer`);
-      score -= 5;
-      currentQuestion++;
-      button1.textContent = "";
-      console.log(
-        `The current score is ${score} and the next question is number ${
-          currentQuestion + 1
-        }`
-      );
-      displayQuestion(questions[currentQuestion]);
-      checkAnswer(questions[currentQuestion].correctAnswer);
-    }
-  }); */
   buttonListener(button1, correctAnswer);
   buttonListener(button2, correctAnswer);
   buttonListener(button3, correctAnswer);
@@ -119,7 +92,7 @@ function buttonListener(button: HTMLButtonElement, correctAnswer: string) {
         }`
       );
       displayQuestion(questions[currentQuestion]);
-      checkAnswer(questions[currentQuestion].correctAnswer);
+      console.log(currentQuestion);
     } else if (button.textContent !== correctAnswer) {
       console.log(`${button.textContent} is not the right answer`);
       score -= 5;
@@ -131,7 +104,7 @@ function buttonListener(button: HTMLButtonElement, correctAnswer: string) {
         }`
       );
       displayQuestion(questions[currentQuestion]);
-      checkAnswer(questions[currentQuestion].correctAnswer);
+      console.log(currentQuestion);
     }
   });
 }
