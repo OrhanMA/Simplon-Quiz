@@ -36,7 +36,7 @@ const questions: Question[] = [
   },
 ];
 
-let currentQuestion: number = 0;
+let currentQuestionIndex: number = 0;
 let score: number = 0;
 const questionContainer = document.querySelector(
   ".question-container"
@@ -61,50 +61,72 @@ function displayQuestion(question: Question) {
 }
 
 const startButton = document.querySelector(".start") as HTMLButtonElement;
+
 startButton.addEventListener("click", () => {
   const presentation = document.querySelector(
     ".presentation"
   ) as HTMLDivElement;
   presentation.style.display = "none";
   questionContainer.style.display = "flex";
-  displayQuestion(questions[currentQuestion]);
+  displayQuestion(questions[currentQuestionIndex]);
   console.log("je marche");
-  checkAnswer(questions[currentQuestion].correctAnswer);
+  checkAnswer();
 });
 
-function checkAnswer(correctAnswer: string) {
-  buttonListener(button1, correctAnswer);
-  buttonListener(button2, correctAnswer);
-  buttonListener(button3, correctAnswer);
-  buttonListener(button4, correctAnswer);
-}
-
-function buttonListener(button: HTMLButtonElement, correctAnswer: string) {
-  button.addEventListener("click", () => {
-    if (button.textContent === correctAnswer) {
-      console.log(`${button.textContent} is the right answer`);
+function checkAnswer() {
+  let correctAnswer = questions[currentQuestionIndex].correctAnswer;
+  button1.addEventListener("click", () => {
+    if (button1.textContent === correctAnswer) {
+      console.log(`The current index is: ${currentQuestionIndex}`);
       score += 10;
-      currentQuestion++;
-      button.textContent = "";
+      currentQuestionIndex++;
       console.log(
-        `The current score is ${score} and the next question is number ${
-          currentQuestion + 1
-        }`
+        `${button1.textContent} is not the right answer. ${correctAnswer} was.`
       );
-      displayQuestion(questions[currentQuestion]);
-      console.log(currentQuestion);
-    } else if (button.textContent !== correctAnswer) {
-      console.log(`${button.textContent} is not the right answer`);
+      button1.textContent = "";
+      console.log(
+        `After the check, the current index is now: ${currentQuestionIndex}`
+      );
+      displayQuestion(questions[currentQuestionIndex]);
+      console.log(`Current correct answer: ${correctAnswer}`);
+      correctAnswer = questions[currentQuestionIndex].correctAnswer;
+      console.log(`The next correct answer will be: ${correctAnswer}`);
+    } else {
+      console.log(`The current index is: ${currentQuestionIndex}`);
       score -= 5;
-      currentQuestion++;
-      button.textContent = "";
+      currentQuestionIndex++;
       console.log(
-        `The current score is ${score} and the next question is number ${
-          currentQuestion + 1
-        }`
+        `${button1.textContent} is not the right answer. ${correctAnswer} was.`
       );
-      displayQuestion(questions[currentQuestion]);
-      console.log(currentQuestion);
+
+      button1.textContent = "";
+      console.log(
+        `After the check, the current index is now: ${currentQuestionIndex}`
+      );
+      displayQuestion(questions[currentQuestionIndex]);
+      console.log(`Current correct answer: ${correctAnswer}`);
+      correctAnswer = questions[currentQuestionIndex].correctAnswer;
+      console.log(`The next correct answer will be: ${correctAnswer}`);
     }
   });
 }
+/*
+Logique de la function checkAnswer
+
+Je prend le bonne reponse en argument
+Je prend un des quatres bouttons en argument
+J'ajoute un event listener au boutton qui attend un clique
+Quand le clique est effectue:
+Si le texte du boutton est egal au texte de la bonne reponse {
+  J'augmente le score par 10
+  J'augmente l'index de la question actuelle par 1
+  Je reinitialise l'etat du boutton en lui donnant un string vide
+  J'execute la fonction qui affiche la question suivante
+}
+Si le texte du boutton est different du texte de la bonne reponse {
+  Je diminue le score de 5 points
+  j'augmente l'index de la question actuelle par 1
+  J'execute la fonction qui affiche la question suivante
+}
+
+*/
