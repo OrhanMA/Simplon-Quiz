@@ -18,8 +18,104 @@ body > * {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20%;
 }
 
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: white;
+}
+
+h2,
+h3 {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 25px;
+  text-align: center;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.7rem;
+}
+button,
+.nextButton {
+  border: none;
+  border-radius: 50px;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+}
+button {
+  background-color: #ffd643;
+  width: 40%;
+  margin: 2rem;
+}
+
+.question {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.buttonDiv > button {
+  width: 45%;
+  margin: 0;
+}
+.nextButton {
+  background-color: white;
+}
+
+.answerHeading {
+  width: 60%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.answerTextDiv {
+  background-color: white;
+  border-radius: 25px;
+  padding: 1rem;
+}
+/* 
 .container {
   display: none;
+}
+ */
+.question-result,
+.answerDiv {
+  width: 90%;
+}
+
+.question-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answerDiv {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.answerTextDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.answerDiv > * {
+  max-width: 50%;
+  font-size: 1.5rem;
 }
