@@ -24,8 +24,20 @@
         Please enjoy the quiz and do not hesitate to share it with your friends
         and family!
       </h2>
-      <button class="start">Click to start playing</button>
+      <form>
+        <label for="name">Enter your name to start playing*</label>
+        <input
+          placeholder="Enter your name*"
+          type="text"
+          name="playerName"
+          id="playerName"
+          required="required"
+        />
+        <button type="submit">Confirm</button>
+      </form>
+      <!--     <button class="start">Click to start playing</button> -->
     </div>
+    <div class="preGame" style="display: none"></div>
     <div class="question-container" style="display: none">
       <h2 class="question"></h2>
       <button class="button" id="button1"></button>

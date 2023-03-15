@@ -68,7 +68,7 @@ function displayQuestion(question: Question) {
   button4.textContent = question.options[3];
   buttonDiv.appendChild(button4);
 }
-
+/* 
 const startButton = document.querySelector(".start") as HTMLButtonElement;
 
 startButton.addEventListener("click", () => {
@@ -80,6 +80,60 @@ startButton.addEventListener("click", () => {
   displayQuestion(questions[currentQuestionIndex]);
   checkAnswer();
 });
+ */
+
+const form = document.querySelector("form") as HTMLFormElement;
+const playerName = localStorage.getItem("playerName");
+let inputName: any = document.querySelector("#playerName") as HTMLInputElement;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(inputName.value);
+  localStorage.setItem("playerName", inputName.value);
+  console.log(`${playerName} is the player's name`);
+  const preGame = document.querySelector(".preGame") as HTMLDivElement;
+  const preGameHeading = document.createElement("h2") as HTMLHeadingElement;
+  preGameHeading.classList.add("preGameHeading");
+  preGameHeading.textContent = `Ok ${playerName}, you're about to play the game but before you need to know a few rules:`;
+  preGame.appendChild(preGameHeading);
+  const preGameRules = document.createElement("ul") as HTMLUListElement;
+  preGameRules.classList.add("preGameRules");
+  preGame.appendChild(preGameRules);
+  createLiRules(
+    preGameRules,
+    "You have 20 seconds to answer or your question is automatically false"
+  );
+  createLiRules(
+    preGameRules,
+    "A good answer grants you 10 points and a bad answer takes away 5 points from you."
+  );
+  createLiRules(preGameRules, "Last but not least, enjoy!");
+  const goBtn = document.createElement("button") as HTMLButtonElement;
+  goBtn.classList.add("goBtn");
+  goBtn.textContent = "Ok I get it, let's go";
+  preGame.appendChild(goBtn);
+  const presentation = document.querySelector(
+    ".presentation"
+  ) as HTMLDivElement;
+  presentation.style.display = "none";
+  preGame.style.display = "flex";
+  goBtn.addEventListener("click", () => {
+    const preGame = document.querySelector(".preGame") as HTMLDivElement;
+    preGame.style.display = "none";
+    questionContainer.style.display = "flex";
+    displayQuestion(questions[currentQuestionIndex]);
+    checkAnswer();
+  });
+});
+
+function createLiRules(ulElement: HTMLUListElement, text: string) {
+  const newLi = document.createElement("li") as HTMLLIElement;
+  newLi.textContent = text;
+  ulElement.appendChild(newLi);
+}
+
+/*questionContainer.style.display = "flex";
+  displayQuestion(questions[currentQuestionIndex]);
+  checkAnswer(); */
 
 const buttons: NodeListOf<Element> = document.querySelectorAll(".button");
 const questionResultDiv = document.querySelector(
@@ -178,7 +232,7 @@ function displayFinalResult(score: number) {
   ) as HTMLDivElement;
   finalResultDiv.style.display = "flex";
   const finalHeading = document.createElement("h2") as HTMLHeadingElement;
-  finalHeading.textContent = "Well, well, well... Let's see how you did... :";
+  finalHeading.textContent = `Well, well, well ${playerName}... Let's see how you did... :`;
   finalResultDiv.appendChild(finalHeading);
   const scoreDisplay = document.createElement("h3") as HTMLParagraphElement;
   if (score >= 40) {
@@ -189,4 +243,7 @@ function displayFinalResult(score: number) {
     scoreDisplay.textContent = `You end up with ${score}. It's ok, nobody is an know-it-all! Me neither!`;
   }
   finalResultDiv.appendChild(scoreDisplay);
+  const againBtn = document.createElement("button") as HTMLButtonElement;
+  againBtn.textContent = "Play again";
+  finalResultDiv.appendChild(againBtn);
 }
