@@ -69,47 +69,53 @@ startButton.addEventListener("click", () => {
   presentation.style.display = "none";
   questionContainer.style.display = "flex";
   displayQuestion(questions[currentQuestionIndex]);
-  console.log("je marche");
   checkAnswer();
 });
 
+const buttons: NodeListOf<Element> = document.querySelectorAll(".button");
+
 function checkAnswer() {
   let correctAnswer = questions[currentQuestionIndex].correctAnswer;
-  button1.addEventListener("click", () => {
-    if (button1.textContent === correctAnswer) {
-      console.log(`The current index is: ${currentQuestionIndex}`);
-      score += 10;
-      currentQuestionIndex++;
-      console.log(
-        `${button1.textContent} is not the right answer. ${correctAnswer} was.`
-      );
-      button1.textContent = "";
-      console.log(
-        `After the check, the current index is now: ${currentQuestionIndex}`
-      );
-      displayQuestion(questions[currentQuestionIndex]);
-      console.log(`Current correct answer: ${correctAnswer}`);
-      correctAnswer = questions[currentQuestionIndex].correctAnswer;
-      console.log(`The next correct answer will be: ${correctAnswer}`);
-    } else {
-      console.log(`The current index is: ${currentQuestionIndex}`);
-      score -= 5;
-      currentQuestionIndex++;
-      console.log(
-        `${button1.textContent} is not the right answer. ${correctAnswer} was.`
-      );
+  for (let i = 0; i < buttons.length; i++) {
+    // mettre button array et listener ensuite
+    buttons[i].addEventListener("click", () => {
+      console.log(buttons[i].textContent, correctAnswer);
+      if (buttons[i].textContent === correctAnswer) {
+        /*       console.log(`The current index is: ${currentQuestionIndex}`); */
+        score += 10;
+        currentQuestionIndex++;
+        console.log(
+          `${buttons[i].textContent} is the right answer. ${correctAnswer} was.`
+        );
+        buttons[i].textContent = "";
+        /*  console.log(
+          `After the check, the current index is now: ${currentQuestionIndex}`
+        ); */
+        displayQuestion(questions[currentQuestionIndex]);
+        /*    console.log(`Current correct answer: ${correctAnswer}`); */
+        correctAnswer = questions[currentQuestionIndex].correctAnswer;
+        console.log(`The next correct answer will be: ${correctAnswer}`);
+      } else {
+        /*         console.log(`The current index is: ${currentQuestionIndex}`); */
+        score -= 5;
+        currentQuestionIndex++;
+        console.log(
+          `${buttons[i].textContent} is not the right answer. ${correctAnswer} was.`
+        );
 
-      button1.textContent = "";
-      console.log(
-        `After the check, the current index is now: ${currentQuestionIndex}`
-      );
-      displayQuestion(questions[currentQuestionIndex]);
-      console.log(`Current correct answer: ${correctAnswer}`);
-      correctAnswer = questions[currentQuestionIndex].correctAnswer;
-      console.log(`The next correct answer will be: ${correctAnswer}`);
-    }
-  });
+        buttons[i].textContent = "";
+        /*        console.log(
+          `After the check, the current index is now: ${currentQuestionIndex}`
+        ); */
+        displayQuestion(questions[currentQuestionIndex]);
+        /*         console.log(`Current correct answer: ${correctAnswer}`); */
+        correctAnswer = questions[currentQuestionIndex].correctAnswer;
+        console.log(`The next correct answer will be: ${correctAnswer}`);
+      }
+    });
+  }
 }
+
 /*
 Logique de la function checkAnswer
 
