@@ -67,6 +67,7 @@ function displayQuestion(question: Question) {
   buttonDiv.appendChild(button3);
   button4.textContent = question.options[3];
   buttonDiv.appendChild(button4);
+  questionTimer();
 }
 /* 
 const startButton = document.querySelector(".start") as HTMLButtonElement;
@@ -80,15 +81,17 @@ startButton.addEventListener("click", () => {
   displayQuestion(questions[currentQuestionIndex]);
   checkAnswer();
 });
- */
+*/
+const presentation = document.querySelector(".presentation") as HTMLDivElement;
 
 const form = document.querySelector("form") as HTMLFormElement;
-const playerName = localStorage.getItem("playerName");
 let inputName: any = document.querySelector("#playerName") as HTMLInputElement;
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   console.log(inputName.value);
   localStorage.setItem("playerName", inputName.value);
+  const playerName = localStorage.getItem("playerName");
   console.log(`${playerName} is the player's name`);
   const preGame = document.querySelector(".preGame") as HTMLDivElement;
   const preGameHeading = document.createElement("h2") as HTMLHeadingElement;
@@ -111,9 +114,6 @@ form.addEventListener("submit", (e) => {
   goBtn.classList.add("goBtn");
   goBtn.textContent = "Ok I get it, let's go";
   preGame.appendChild(goBtn);
-  const presentation = document.querySelector(
-    ".presentation"
-  ) as HTMLDivElement;
   presentation.style.display = "none";
   preGame.style.display = "flex";
   goBtn.addEventListener("click", () => {
@@ -121,7 +121,6 @@ form.addEventListener("submit", (e) => {
     preGame.style.display = "none";
     questionContainer.style.display = "flex";
     displayQuestion(questions[currentQuestionIndex]);
-    checkAnswer();
   });
 });
 
@@ -140,19 +139,26 @@ const questionResultDiv = document.querySelector(
   ".question-result"
 ) as HTMLDivElement;
 
+const images = document.querySelectorAll("img");
+console.log(images);
 function displayQuestionResult(correctAnswer: string) {
   questionContainer.style.display = "none";
   questionResultDiv.style.display = "flex";
   const answerHeading = document.createElement("h2") as HTMLHeadingElement;
   answerHeading.classList.add("answerHeading");
-  answerHeading.textContent = "Answer:";
+  answerHeading.textContent = "The right answer is:";
   questionResultDiv.appendChild(answerHeading);
   const answerDiv = document.createElement("div") as HTMLDivElement;
   answerDiv.classList.add("answerDiv");
   questionResultDiv.appendChild(answerDiv);
-  const answerIllustration = document.createElement("img") as HTMLImageElement;
-  answerIllustration.src = questions[currentQuestionIndex].image;
-  answerDiv.appendChild(answerIllustration);
+  /*   const answerIllustration = document.createElement("img") as HTMLImageElement; */
+  /*   answerIllustration.src. = "../assets/beijing.jpeg"; */
+  /*   answerIllustration.setAttribute("src", "./assets/beijing.jpeg"); */
+  /*   answerDiv.appendChild(answerIllustration); */
+
+  const currentImage = images[currentQuestionIndex];
+  currentImage.style.display = "block";
+  answerDiv.appendChild(currentImage);
   const answerTextDiv = document.createElement("div") as HTMLDivElement;
   answerTextDiv.classList.add("answerTextDiv");
   answerDiv.appendChild(answerTextDiv);
@@ -178,6 +184,7 @@ function displayQuestionResult(correctAnswer: string) {
       questionResultDiv.style.display = "none";
       questionContainer.style.display = "flex";
       displayQuestion(questions[currentQuestionIndex]);
+      questionTimer();
     }
   });
 }
@@ -227,6 +234,7 @@ function checkAnswer() {
 }
 
 function displayFinalResult(score: number) {
+  const playerName = localStorage.getItem("playerName");
   const finalResultDiv = document.querySelector(
     ".final-result-container"
   ) as HTMLDivElement;
@@ -246,4 +254,44 @@ function displayFinalResult(score: number) {
   const againBtn = document.createElement("button") as HTMLButtonElement;
   againBtn.textContent = "Play again";
   finalResultDiv.appendChild(againBtn);
+  /*   againBtn.addEventListener("click", () => {
+    finalResultDiv.style.display = "none";
+    presentation.style.display = "flex";
+  }); */
+}
+
+function questionTimer() {
+  if (questionContainer.style.display === "flex") {
+    setTimeout(() => {
+      setFalseAnswer;
+    }, 5000);
+    setInterval(() => {
+      decrementByOne();
+    }, 1000);
+  }
+}
+const secondsDisplay = document.querySelector(
+  ".secondsDisplay"
+) as HTMLParagraphElement;
+
+function setFalseAnswer() {
+  starterTimer = 20;
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].textContent = "";
+  }
+  const button1 = document.querySelector("#button1") as HTMLButtonElement;
+  button1.click();
+}
+
+let starterTimer: number = 20;
+
+function decrementByOne() {
+  /*   const secondsDisplay = document.querySelector(
+    ".secondsDisplay"
+  ) as HTMLParagraphElement; */
+  if (secondsDisplay.textContent === "0") {
+    return;
+  } else {
+    secondsDisplay.textContent = `${starterTimer--}`;
+  }
 }
