@@ -264,7 +264,7 @@ function questionTimer() {
   if (questionContainer.style.display === "flex") {
     setTimeout(() => {
       setFalseAnswer;
-    }, 5000);
+    }, 19000);
     setInterval(() => {
       decrementByOne();
     }, 1000);
@@ -278,6 +278,7 @@ function setFalseAnswer() {
   starterTimer = 20;
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].textContent = "";
+    buttons[i].click();
   }
   const button1 = document.querySelector("#button1") as HTMLButtonElement;
   button1.click();
