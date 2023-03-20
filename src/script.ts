@@ -68,6 +68,12 @@ function displayQuestion(question: Question) {
   button4.textContent = question.options[3];
   buttonDiv.appendChild(button4);
   questionTimer();
+  checkAnswer();
+  /*   const buttons: NodeListOf<HTMLButtonElement> =
+    document.querySelectorAll(".button");
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", () => {});
+  } */
 }
 
 const presentation = document.querySelector(".presentation") as HTMLDivElement;
@@ -173,21 +179,22 @@ function checkAnswer() {
   let correctAnswer = questions[currentQuestionIndex].correctAnswer;
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", () => {
-      console.log(buttons[i].textContent, correctAnswer);
+      console.log("button is clicked");
+      /*       console.log(buttons[i].textContent, correctAnswer); */
       if (buttons[i].textContent === correctAnswer) {
-        console.log(
+        /*  console.log(
           `${buttons[i].textContent} is the right answer. ${correctAnswer} was.`
-        );
+        ); */
         score += 10;
         displayQuestionResult(correctAnswer);
         currentQuestionIndex++;
         buttons[i].textContent = "";
         correctAnswer = questions[currentQuestionIndex].correctAnswer;
-        console.log(`The next correct answer will be: ${correctAnswer}`);
+        /*  console.log(`The next correct answer will be: ${correctAnswer}`); */
       } else {
-        console.log(
+        /*   console.log(
           `${buttons[i].textContent} is not the right answer. ${correctAnswer} was.`
-        );
+        ); */
         score -= 5;
         displayQuestionResult(correctAnswer);
         currentQuestionIndex++;
@@ -196,7 +203,7 @@ function checkAnswer() {
 
         correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
-        console.log(`The next correct answer will be: ${correctAnswer}`);
+        /* console.log(`The next correct answer will be: ${correctAnswer}`); */
       }
     });
   }
@@ -231,9 +238,9 @@ function displayFinalResult(score: number) {
 
 function questionTimer() {
   if (questionContainer.style.display === "flex") {
-    setTimeout(() => {
-      setFalseAnswer;
-    }, 19000);
+    /*     setTimeout(() => {
+      setFalseAnswer();
+    }, 19000); */
     setInterval(() => {
       decrementByOne();
     }, 1000);
@@ -247,7 +254,6 @@ function setFalseAnswer() {
   starterTimer = 20;
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].textContent = "";
-    buttons[i].click();
   }
   const button1 = document.querySelector("#button1") as HTMLButtonElement;
   button1.click();
