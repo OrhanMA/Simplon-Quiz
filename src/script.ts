@@ -69,19 +69,7 @@ function displayQuestion(question: Question) {
   buttonDiv.appendChild(button4);
   questionTimer();
 }
-/* 
-const startButton = document.querySelector(".start") as HTMLButtonElement;
 
-startButton.addEventListener("click", () => {
-  const presentation = document.querySelector(
-    ".presentation"
-  ) as HTMLDivElement;
-  presentation.style.display = "none";
-  questionContainer.style.display = "flex";
-  displayQuestion(questions[currentQuestionIndex]);
-  checkAnswer();
-});
-*/
 const presentation = document.querySelector(".presentation") as HTMLDivElement;
 
 const form = document.querySelector("form") as HTMLFormElement;
@@ -130,10 +118,6 @@ function createLiRules(ulElement: HTMLUListElement, text: string) {
   ulElement.appendChild(newLi);
 }
 
-/*questionContainer.style.display = "flex";
-  displayQuestion(questions[currentQuestionIndex]);
-  checkAnswer(); */
-
 const buttons: NodeListOf<Element> = document.querySelectorAll(".button");
 const questionResultDiv = document.querySelector(
   ".question-result"
@@ -151,10 +135,6 @@ function displayQuestionResult(correctAnswer: string) {
   const answerDiv = document.createElement("div") as HTMLDivElement;
   answerDiv.classList.add("answerDiv");
   questionResultDiv.appendChild(answerDiv);
-  /*   const answerIllustration = document.createElement("img") as HTMLImageElement; */
-  /*   answerIllustration.src. = "../assets/beijing.jpeg"; */
-  /*   answerIllustration.setAttribute("src", "./assets/beijing.jpeg"); */
-  /*   answerDiv.appendChild(answerIllustration); */
 
   const currentImage = images[currentQuestionIndex];
   currentImage.style.display = "block";
@@ -192,11 +172,9 @@ function displayQuestionResult(correctAnswer: string) {
 function checkAnswer() {
   let correctAnswer = questions[currentQuestionIndex].correctAnswer;
   for (let i = 0; i < buttons.length; i++) {
-    // mettre button array et listener ensuite
     buttons[i].addEventListener("click", () => {
       console.log(buttons[i].textContent, correctAnswer);
       if (buttons[i].textContent === correctAnswer) {
-        /*       console.log(`The current index is: ${currentQuestionIndex}`); */
         console.log(
           `${buttons[i].textContent} is the right answer. ${correctAnswer} was.`
         );
@@ -204,15 +182,9 @@ function checkAnswer() {
         displayQuestionResult(correctAnswer);
         currentQuestionIndex++;
         buttons[i].textContent = "";
-        /*  console.log(
-            `After the check, the current index is now: ${currentQuestionIndex}`
-            ); */
         correctAnswer = questions[currentQuestionIndex].correctAnswer;
-        /*         displayQuestion(questions[currentQuestionIndex]); */
-        /*    console.log(`Current correct answer: ${correctAnswer}`); */
         console.log(`The next correct answer will be: ${correctAnswer}`);
       } else {
-        /*         console.log(`The current index is: ${currentQuestionIndex}`); */
         console.log(
           `${buttons[i].textContent} is not the right answer. ${correctAnswer} was.`
         );
@@ -221,12 +193,9 @@ function checkAnswer() {
         currentQuestionIndex++;
 
         buttons[i].textContent = "";
-        /*        console.log(
-          `After the check, the current index is now: ${currentQuestionIndex}`
-        ); */
+
         correctAnswer = questions[currentQuestionIndex].correctAnswer;
-        /*         displayQuestion(questions[currentQuestionIndex]); */
-        /*         console.log(`Current correct answer: ${correctAnswer}`); */
+
         console.log(`The next correct answer will be: ${correctAnswer}`);
       }
     });
@@ -287,9 +256,6 @@ function setFalseAnswer() {
 let starterTimer: number = 20;
 
 function decrementByOne() {
-  /*   const secondsDisplay = document.querySelector(
-    ".secondsDisplay"
-  ) as HTMLParagraphElement; */
   if (secondsDisplay.textContent === "0") {
     return;
   } else {
