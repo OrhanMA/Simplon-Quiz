@@ -6,16 +6,12 @@ Pour mettre en place le projet sur votre ordinateur vous devez:
 
 - Clone le projet dans un dossier local
 - Vous devrez peut-etre installer typescript sur votre machine: https://www.typescriptlang.org/download
-- Run le projet avec parcel (yarn parcel src/index.html)
+- Installer et run le projet avec parcel (yarn add --dev parcel && yarn parcel src/index.html)
 - Lien vers la documentation officielle: https://parceljs.org/getting-started/webapp/
 
 Sources:
 
-images: Ling Tang: https://unsplash.com/fr/photos/yBroAF1cN3I
-https://img1.yna.co.kr/etc/inner/FR/2020/03/27/AFR20200327002100884_01_i_P4.jpg
-https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Asia_%28orthographic_projection%29.svg/640px-Asia_%28orthographic_projection%29.svg.png
-https://www.nationalreview.com/wp-content/uploads/2022/02/beijing.jpg?fit=2057%2C1200
-Nick Fewings: https://unsplash.com/fr/photos/efD1FBZqYuQ
+image: Alex George (Unsplash) : https://unsplash.com/fr/photos/J7qnlH2PUpg
 
 Concernant le projet:
 
@@ -24,10 +20,11 @@ Le but de ce brief Simplon est de faire un quiz. Le choix du theme est libre mai
 - Une question avec 4 buttons correspondants aux choix possibles
 - Les questions lorsqu'on les valide doit etre suivies directement de la reponse.
 
-Explication
+Explication:
+
 Vous avez 10 jours pour réaliser le projet.
 
-L’agence dans laquelle vous réalisez votre stage développe bénévolement tous les ans, une application dans le but de promouvoir la culture, informer sur des sujets environnementaux, sociétaux, etc.
+L’agence dans laquelle vous réalisez votre stage développe bénévolement tous les ans, une application dans le but de promouvoir la culture.
 
 Cette année l’application se présentera sous la forme d’un quiz. Votre responsable technique souhaite vous confier la réalisation de ce projet, au complet !
 
@@ -42,10 +39,7 @@ Vous devrez créer un repo Git pour le projet et être rigoureux dans vos commit
 Bonus :
 
 - L’utilisateur doit rentrer un nom de joueur pour commencer le quiz.
-- Ajouter un timer à chaque question.
-- Stocker le profil de l’utilisateur, sa progression, son meilleur score, - nombre de parties, etc dans le local storage.
-- Faire un classement des scores de l’utilisateur.
-- Intégrer des images, vidéos, etc pour illustrer les questions.
+- Stocker le profil de l’utilisateur dans le local storage.
 
 Livrables
 
