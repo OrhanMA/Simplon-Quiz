@@ -1,89 +1,68 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="./script.ts" defer></script>
-    <title>Quiz</title>
+    <title>Simplon-Quiz</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Julee&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Julee&display=swap"
       rel="stylesheet"
     />
+    <script src="script.ts" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="presentation">
-      <h1>Welcome to the Quiz</h1>
-      <h2>
-        The quiz you’re about to play is part of the International Culture Day
-        (ICT) that our company is part of. In this edition, you’ll be able to
-        play a quiz and hopefully learn some stuff about Chinese’s culture.
-        Please enjoy the quiz and do not hesitate to share it with your friends
-        and family!
-      </h2>
+      <h1>NBA QUIZ</h1>
+      <div>
+        <h2>Welcome to the quiz. The quiz's theme is about the NBA.</h2>
+        <div class="rulesDiv">
+          <p>Rules :</p>
+          <ul>
+            <li>5 questions</li>
+            <li>+10 by good answer</li>
+            <li>-5 by bad answer</li>
+            <li>Enjoy!</li>
+          </ul>
+        </div>
+      </div>
       <form>
-        <label for="name"
-          >Enter your name to start playing <span>*</span>
-        </label>
+        <label for="username">Enter your username to start playing :</label>
         <input
-          placeholder="Enter your name*"
           type="text"
-          name="playerName"
-          id="playerName"
+          name="usernameInput"
+          id="usernameInput"
+          placeholder="username"
           required="required"
         />
         <button type="submit">Confirm</button>
       </form>
-      <!--     <button class="start">Click to start playing</button> -->
     </div>
-    <div class="preGame" style="display: none"></div>
-    <div class="question-container" style="display: none">
+    <div class="questionDiv">
       <h2 class="question"></h2>
-      <button class="button" id="button1"></button>
-      <button class="button" id="button2"></button>
-      <button class="button" id="button3"></button>
-      <button class="button" id="button4"></button>
-      <div class="countdown">
-        <p>Seconds left:</p>
-        <p class="secondsDisplay"></p>
+      <div>
+        <button class="questionButton"></button>
+        <button class="questionButton"></button>
+        <button class="questionButton"></button>
+        <button class="questionButton"></button>
       </div>
+      <p class="secondsLeft">Seconds left : 20</p>
+      <p class="questionNumber"></p>
     </div>
-    <div class="question-result" style="display: none"></div>
-    <div class="final-result-container" style="display: none"></div>
-    <div>
-      <img
-        class="answerImage"
-        src="../assets/asia.png"
-        alt=""
-        style="display: none"
-      />
-      <img
-        class="answerImage"
-        src="../assets/beijing.jpeg"
-        alt=""
-        style="display: none"
-      />
-      <img
-        class="answerImage"
-        src="../assets/usine.jpeg"
-        alt=""
-        style="display: none"
-      />
-      <img
-        class="answerImage"
-        src="../assets/monument.jpg"
-        alt=""
-        style="display: none"
-      />
-      <img
-        class="answerImage"
-        src="../assets/buddhism.jpg"
-        alt=""
-        style="display: none"
-      />
+    <div class="answerDiv">
+      <h2>Answer :</h2>
+      <h3 class="answer"></h3>
+      <p class="roundPoints"></p>
+      <button class="nextButton">Continue</button>
+    </div>
+    <div class="finalResult">
+      <h2>The game is over. Here's your results :</h2>
+      <h3 class="numberRightAnswer"></h3>
+      <p class="pointsEarned"></p>
+      <button class="playAgain">Play again</button>
     </div>
   </body>
 </html>
