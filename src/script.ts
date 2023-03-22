@@ -73,6 +73,9 @@ function displayQuestion() {
     button[i].textContent = questionArray[questionIndex].options[i];
   }
   questionNumber.textContent = `${questionIndex + 1}/5`;
+  clearMyInterval();
+  startTimer();
+  /*   setTimeout(clearMyInterval, 20000); */
 }
 
 for (let i = 0; i < button.length; i++) {
@@ -80,6 +83,28 @@ for (let i = 0; i < button.length; i++) {
     let selectedAnswer = button[i].textContent;
     displayAnswer(selectedAnswer);
   });
+}
+
+const secondsDisplay = document.querySelector(
+  ".secondsDisplay"
+) as HTMLParagraphElement;
+let timer: number = 20;
+let myInterval;
+function startTimer() {
+  timer = 20;
+  myInterval = setInterval(decrementSeconds, 1000);
+}
+function decrementSeconds() {
+  if (timer <= 0) {
+    secondsDisplay.textContent = `Time's up!`;
+    clearMyInterval();
+  } else {
+    secondsDisplay.textContent = `Seconds left: ${timer} seconds`;
+    timer--;
+  }
+}
+function clearMyInterval() {
+  clearInterval(myInterval);
 }
 
 const answer = document.querySelector(".answer") as HTMLHeadingElement;
@@ -121,6 +146,7 @@ const pointsEarned = document.querySelector(
 ) as HTMLParagraphElement;
 const playerName = localStorage.getItem("username");
 function finalResult() {
+  popup.style.display = "unset";
   answerDiv.style.display = "none";
   finalResultDiv.style.display = "flex";
   if (numberGoodAnswer === 5) {
@@ -138,4 +164,11 @@ function finalResult() {
 const againButton = document.querySelector(".playAgain") as HTMLButtonElement;
 againButton.addEventListener("click", () => {
   location.reload();
+});
+
+const popupBtn = document.querySelector(".popup-btn") as HTMLButtonElement;
+const popup = document.querySelector(".popup") as HTMLDivElement;
+popup.style.display = "none";
+popupBtn.addEventListener("click", () => {
+  popup.style.display = "none";
 });

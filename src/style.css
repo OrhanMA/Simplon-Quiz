@@ -125,3 +125,36 @@ form > button {
 .secondsLeft {
   font-size: 1.7rem;
 }
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  background-color: red;
+  z-index: 100;
+  border-radius: 20px;
+}
+
+.popup > * {
+  background-color: red;
+  color: white;
+  margin: 3rem;
+}
+.popup > h2 {
+  font-size: 3rem;
+}
+.popup > h3 {
+  font-size: 2rem;
+}
+.popup > p {
+  font-size: 1.5rem;
+}
+.popup > button {
+  background-color: blue;
+  padding: 2rem;
+  font-size: 1.5rem;
+  border-radius: 25px;
+  font-weight: 500;
+}
