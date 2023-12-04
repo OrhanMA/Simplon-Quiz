@@ -6,8 +6,10 @@ Pour mettre en place le projet sur votre ordinateur vous devez:
 
 - Clone le projet dans un dossier local
 - Vous devrez peut-etre installer typescript sur votre machine: https://www.typescriptlang.org/download
+- installer yarn sur votre machine: https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable
 - Installer et run le projet avec parcel (yarn add --dev parcel && yarn parcel src/index.html)
 - Lien vers la documentation officielle: https://parceljs.org/getting-started/webapp/
+- Allez sur votre navigateur et saisissez cette adresse: http://localhost:1234
 
 Sources:
 
